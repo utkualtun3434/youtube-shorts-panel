@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Shorts Otomasyon Paneli</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #135B4E;
+    }
+    label {
+      display: block;
+      margin-top: 20px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      background-color: #135B4E;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #0f4a3c;
+    }
+    .output {
+      background-color: #e6f2f0;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>YouTube Shorts Paneli</h1>
+
+    <label for="videoUrl">Twitter Video Linki</label>
+    <input type="text" id="videoUrl" placeholder="https://twitter.com/...">
+
+    <label for="description">Açıklama (ChatGPT'den Al)</label>
+    <textarea id="description" rows="4" placeholder="Buraya yapıştır..."></textarea>
+
+    <label for="tags">Etiketler</label>
+    <input type="text" id="tags" placeholder="#motivation #shorts #daily">
+
+    <button onclick="handleSubmit()">Kaydet / Kopyala</button>
+
+    <div class="output" id="output" style="display:none;">
+      <h3>Önizleme</h3>
+      <p><strong>Video:</strong> <span id="outVideo"></span></p>
+      <p><strong>Açıklama:</strong> <span id="outDescription"></span></p>
+      <p><strong>Etiketler:</strong> <span id="outTags"></span></p>
+    </div>
+  </div>
+
+  <script>
+    function handleSubmit() {
+      const videoUrl = document.getElementById('videoUrl').value;
+      const description = document.getElementById('description').value;
+      const tags = document.getElementById('tags').value;
+
+      document.getElementById('outVideo').textContent = videoUrl;
+      document.getElementById('outDescription').textContent = description;
+      document.getElementById('outTags').textContent = tags;
+      document.getElementById('output').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
